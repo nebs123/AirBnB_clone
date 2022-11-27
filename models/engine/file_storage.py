@@ -3,6 +3,7 @@
 Module to hold FileStorage class
 """
 from ..base_model import BaseModel
+from ..user import User
 import json
 
 
@@ -52,6 +53,8 @@ class FileStorage:
             for key, value in read_dict.items():
                 if value['__class__'] == BaseModel.__name__:
                     new_dict[key] = BaseModel(**value)
+                elif value['__class__'] == User.__name__:
+                    new_dict[key] = User(**value)
                 else:
                     raise TypeError("Unknown")
             FileStorage.__objects = new_dict

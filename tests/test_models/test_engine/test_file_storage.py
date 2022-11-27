@@ -64,12 +64,15 @@ class TestFileStorage(unittest.TestCase):
         for key, value in store_dict.items():
             with self.subTest(key=key):
                 self.assertEqual(store_dict[key].id, copy_dict[key].id)
-                self.assertEqual(store_dict[key].created_at, copy_dict[key].created_at)
-                self.assertEqual(store_dict[key].updated_at, copy_dict[key].updated_at)
-
+                self.assertEqual(store_dict[key].created_at,
+                                 copy_dict[key].created_at)
+                self.assertEqual(store_dict[key].updated_at,
+                                 copy_dict[key].updated_at)
 
         for key, value in copy_dict.items():
             with self.subTest(key=key):
                 self.assertEqual(store_dict[key].id, copy_dict[key].id)
-                self.assertEqual(store_dict[key].created_at, copy_dict[key].created_at)
-                self.assertEqual(store_dict[key].updated_at, copy_dict[key].updated_at)
+                self.assertEqual(store_dict[key].created_at,
+                                 copy_dict[key].created_at)
+                self.assertEqual(store_dict[key].updated_at,
+                                 copy_dict[key].updated_at)

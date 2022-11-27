@@ -6,6 +6,7 @@ Module that holds the command interpreter for the Airbnb Console
 import readline
 import cmd
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -15,7 +16,7 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    classes = [BaseModel.__name__]
+    classes = [BaseModel.__name__, User.__name__]
 
     def do_quit(self, arg):
         """
@@ -82,6 +83,8 @@ class HBNBCommand(cmd.Cmd):
 
         if cmds[0] == BaseModel.__name__:
             self.createObject(BaseModel)
+        elif cmds[0] == User.__name__:
+            self.createObject(User)
         else:
             print("** class doesn't exist **")
 
