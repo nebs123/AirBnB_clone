@@ -4,6 +4,11 @@ Module to hold FileStorage class
 """
 from ..base_model import BaseModel
 from ..user import User
+from ..amenity import Amenity
+from ..city import City
+from ..place import Place
+from ..review import Review
+from ..state import State
 import json
 
 
@@ -55,6 +60,16 @@ class FileStorage:
                     new_dict[key] = BaseModel(**value)
                 elif value['__class__'] == User.__name__:
                     new_dict[key] = User(**value)
+                elif value['__class__'] == Amenity.__name__:
+                    new_dict[key] = Amenity(**value)
+                elif value['__class__'] == City.__name__:
+                    new_dict[key] = City(**value)
+                elif value['__class__'] == Place.__name__:
+                    new_dict[key] = Place(**value)
+                elif value['__class__'] == Review.__name__:
+                    new_dict[key] = Review(**value)
+                elif value['__class__'] == State.__name__:
+                    new_dict[key] = State(**value)
                 else:
-                    raise TypeError("Unknown")
+                    raise TypeError("Unknown Class")
             FileStorage.__objects = new_dict

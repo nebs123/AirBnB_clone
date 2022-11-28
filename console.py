@@ -7,6 +7,11 @@ import readline
 import cmd
 from models.base_model import BaseModel
 from models.user import User
+from models.amenity import Amenity
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
 from models import storage
 
 
@@ -16,7 +21,8 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    classes = [BaseModel.__name__, User.__name__]
+    classes = [BaseModel.__name__, User.__name__, Amenity.__name__,
+               City.__name__, Place.__name__, Review.__name__, State.__name__]
 
     def do_quit(self, arg):
         """
@@ -85,6 +91,16 @@ class HBNBCommand(cmd.Cmd):
             self.createObject(BaseModel)
         elif cmds[0] == User.__name__:
             self.createObject(User)
+        elif cmds[0] == Amenity.__name__:
+            self.createObject(Amenity)
+        elif cmds[0] == City.__name__:
+            self.createObject(City)
+        elif cmds[0] == Place.__name__:
+            self.createObject(Place)
+        elif cmds[0] == Review.__name__:
+            self.createObject(Review)
+        elif cmds[0] == State.__name__:
+            self.createObject(State)
         else:
             print("** class doesn't exist **")
 
